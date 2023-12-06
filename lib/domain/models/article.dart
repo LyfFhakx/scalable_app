@@ -1,6 +1,7 @@
 import 'package:webfeed_plus/webfeed_plus.dart';
 
 class Article {
+  final String id;
   final String title;
   final String description;
   final String content;
@@ -10,6 +11,8 @@ class Article {
   final String? coverImage;
 
   Article({
+
+    required this.id,
     required this.title,
     required this.description,
     required this.content,
@@ -20,14 +23,18 @@ class Article {
   });
 
   factory Article.fromRssItem(RssItem item) {
+    final regex = RegExp('<img.+src=(?:"|\')(.+?)(?:"|\')(?:.+?)>');
     return Article(
+
+      id: item.guid!,
       title: item.title ?? '',
       description: item.description ?? '',
       content: item.content?.value ?? '',
       keywords: item.categories?.map((e) => e.value).toList() ?? [],
       url: item.link ?? '',
       date: item.pubDate ?? DateTime.now(),
-      coverImage: item.content?.images.first,
+      coverImage: regex.firstMatch(item.description ?? '')?.group(1) ??
+          item.content?.images.firstOrNull,
     );
   }
 }

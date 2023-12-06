@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 
-import 'interactors_locator.dart';
+import 'locator_interactors.dart';
 import 'locator_modules.dart';
-import 'service_locator.dart';
+import 'locator_screens.dart';
 
 final getIt = GetIt.instance;
 bool _initialized = false;

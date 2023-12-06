@@ -62,6 +62,7 @@ const milliseconds100 = Duration(milliseconds: 100);
 const seconds1 = Duration(seconds: 1);
 const seconds10 = Duration(seconds: 10);
 final anyArticle = Article(
+  id: 'id1',
   title: 'title',
   description: 'description',
   content: '<a href=url>content</a>',
@@ -70,6 +71,7 @@ final anyArticle = Article(
   date: DateTime(2023),
 );
 final anyPremiumArticle = Article(
+  id: 'id2',
   title: 'title',
   description: 'description',
   content: '',

@@ -13,11 +13,26 @@ class ArticleListViewModel
   }) : _articleInteractor = articleInteractor;
 
   @override
-  void onInitState() {
-    // In the onInitwState the widget tree is not built yet hence the call to
-    // notifyListener() is not needed
-    vmState.isLoading = true;
-    _refreshArticleList();
+  Future<void> onInitState() async {
+    // if the list retrieved from the provider is empty let's refresh it
+    if (vmState.articleList.isEmpty) {
+      vmState.isLoading = true;
+      await _refreshArticleList();
+    } else {
+      vmState.articleVisibilityList.addAll(
+        vmState.articleList.map((e) => true),
+      );
+    }
+    // if there was a query parameter for a given article try to open it
+    if (!vmState.hasError && vmState.initialArticleId != null) {
+      final initialArticleIndex = vmState.articleList.indexWhere(
+            (article) => article.id == vmState.initialArticleId,
+      );
+      if (initialArticleIndex >= 0) {
+        // if we find the article requested we reuse our navigation method
+        viewContract.goToArticleDetailsScreen(initialArticleIndex);
+      }
+    }
   }
 
   @override

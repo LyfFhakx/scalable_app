@@ -1,5 +1,5 @@
 import '../../../domain.dart';
-import '../_base/base.dart';
+import '../screens.dart';
 
 class ArticleDetailsVMState extends BaseViewModelState {
   late final Article article;

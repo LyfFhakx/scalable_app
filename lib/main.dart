@@ -18,15 +18,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => User(id: 'id', name: 'name')),
+        ChangeNotifierProvider(create: (_) => ArticleListProvider()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const ArticleListView(),
+        routerConfig: AppRouter.simpleRouter,
       ),
     );
   }

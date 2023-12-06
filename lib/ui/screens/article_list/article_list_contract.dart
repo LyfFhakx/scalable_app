@@ -2,8 +2,11 @@ import '../../../domain.dart';
 import '../screens.dart';
 
 class ArticleListVMState extends BaseViewModelState {
-  final List<Article> articleList = [];
+  late final ArticleListProvider articleListProvider;
+  late final String? initialArticleId;
   final List<bool> articleVisibilityList = [];
+  List<Article> get articleList => articleListProvider.articleList;
+
 }
 
 abstract class ArticleListViewContract extends BaseViewContract {
