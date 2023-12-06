@@ -5,8 +5,8 @@ import 'package:scalable_ddd_app/data.dart';
 import 'package:scalable_ddd_app/domain.dart';
 
 
-import '_mocks/_mocked_components/generic_mocks.dart';
-import '_mocks/_mocked_data/medium_rss_feed_mocked.dart';
+import '../../_mocks/_mocked_components/generic_mocks.dart';
+import '../../_mocks/_mocked_data/medium_rss_feed_mocked.dart';
 
 void main() {
   ArticleInteractor? articleInteractor;
@@ -20,7 +20,7 @@ void main() {
     when(() => mockApiService.getMediumRssFeed()).thenAnswer(
           (_) => Future.value(
         Response(
-          data: MediumRssFeedMocked.string_200,
+          data: MediumRssFeedMocked.string200OneArticle,
           requestOptions: RequestOptions(),
         ),
       ),

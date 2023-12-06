@@ -1,10 +1,10 @@
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:scalable_ddd_app/data.dart';
-import 'package:scalable_ddd_app/data/modules/api/endpoints.dart';
 import 'package:scalable_ddd_app/domain.dart';
 
-import '_mocks/_mocked_data/medium_rss_feed_mocked.dart';
-import 'data/modules/api/mock_client_adapter.dart';
+import '../../../_mocks/_mocked_components/mock_client_adapter.dart';
+import '../../../_mocks/_mocked_data/medium_rss_feed_mocked.dart';
 
 void main() {
   ApiService? apiService;
@@ -17,7 +17,7 @@ void main() {
 
   group('getMediumRssFeed -', () {
     test('Successfully get articles from RSS fields', () async {
-      final data = MediumRssFeedMocked.string_200;
+      final data = MediumRssFeedMocked.string200OneArticle;
 
       mockClientAdapter!
           .onApiCall(ApiMethod.get, Endpoints.mediumRssFeed)
