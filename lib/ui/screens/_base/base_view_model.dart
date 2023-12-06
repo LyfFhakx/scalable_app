@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
-
-import 'base_contract.dart';
+import 'package:scalable_ddd_app/ui/screens/_base/base_contract.dart';
 
 abstract class BaseViewModel<VMS extends BaseViewModelState,
 VC extends BaseViewContract> extends ChangeNotifier
@@ -27,7 +26,7 @@ VC extends BaseViewContract> extends ChangeNotifier
 
   /// same for when the view is disposed
   @override
-  void onDispose() {}
+  void onDisposeView() {}
 
   /// update the state and notify listeners when loading starts
   void startLoadingState() {

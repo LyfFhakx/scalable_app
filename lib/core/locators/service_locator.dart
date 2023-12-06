@@ -10,12 +10,11 @@ void initializeScreens() {
   getIt.registerFactory<ArticleListVMState>(
         () => ArticleListVMState(),
   );
-
   // ArticleDetailsView
-  // getIt.registerFactory<ArticleDetailsVMContract>(
-  //       () => ArticleDetailsViewModel(),
-  // );
-  // getIt.registerFactory<ArticleDetailsVMState>(
-  //       () => ArticleDetailsVMState(),
-  // );
+  getIt.registerFactory<ArticleDetailsVMContract>(
+        () => ArticleDetailsViewModel(),
+  );
+  getIt.registerFactory<ArticleDetailsVMState>(
+        () => ArticleDetailsVMState(),
+  );
 }

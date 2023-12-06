@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core.dart';
 import '../../../domain.dart';
-import 'base_contract.dart';
-import 'package:provider/provider.dart';
+import 'base.dart';
 
 /// Abstract BaseViewWidgetState: This forms the foundation for the state of any view.
 ///
@@ -48,7 +48,7 @@ VMC extends BaseViewModelContract, VMS extends BaseViewModelState>
     // this is not needed for our app but shown as an example
     vmState.user = context.read<User>();
     onInitState();
-    // vmContract.onInitState();
+    vmContract.onInitState();
     super.initState();
   }
 
@@ -103,8 +103,8 @@ VMC extends BaseViewModelContract, VMS extends BaseViewModelState>
   /// This creates a Selector Widget that listens to specific changes in the [viewModelState].
   /// Provide the object [T] from the [viewModelState] using the [selector] parameter.
   Widget viewSelectorWidget<T>({
-    required Widget Function(BuildContext) builder,
     required T Function(VMS) selector,
+    required Widget Function(BuildContext) builder,
   }) =>
       _ViewSelector<VMC, VMS, T>(
         vmContract: vmContract,
@@ -113,8 +113,6 @@ VMC extends BaseViewModelContract, VMS extends BaseViewModelState>
       );
 }
 
-/// This class is just used to tie a Consumer widget to this view
-/// provider specifically
 class _ViewConsumer<VMC extends BaseViewModelContract> extends StatelessWidget {
   final VMC vmContract;
   final Widget Function(BuildContext context) builder;
@@ -130,8 +128,6 @@ class _ViewConsumer<VMC extends BaseViewModelContract> extends StatelessWidget {
   );
 }
 
-/// This class is just used to tie a Selector widget to this view
-/// provider specifically
 class _ViewSelector<VMC extends BaseViewModelContract,
 VMS extends BaseViewModelState, T> extends StatelessWidget {
   final VMC vmContract;

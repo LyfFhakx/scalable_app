@@ -1,9 +1,8 @@
 import 'package:get_it/get_it.dart';
-import 'package:scalable_ddd_app/core/locators/service_locator.dart';
 
-import '../../data.dart';
-import '../../domain.dart';
+import 'interactors_locator.dart';
 import 'locator_modules.dart';
+import 'service_locator.dart';
 
 final getIt = GetIt.instance;
 bool _initialized = false;
@@ -17,8 +16,4 @@ void serviceLocatorInitialization() {
   }
 }
 
-void initializeInteractors() {
-  getIt.registerFactory<ArticleUseCases>(
-        () => ArticleInteractor(apiService: getIt<ApiService>()),
-  );
-}
+

@@ -30,7 +30,7 @@ class _ArticleListViewWidgetState extends BaseViewWidgetState<
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'GBAccetta Portfolio',
+          'Medium Portfolio',
           style: textTheme.titleLarge?.copyWith(color: Colors.white),
         ),
       ),
@@ -56,15 +56,12 @@ class _ArticleListViewWidgetState extends BaseViewWidgetState<
               error: 'WOW!\n🚨\nNo articles in the list',
             ),
           if (_showError)
-            ScreenErrorWidget(onButtonTap:(){}
-                // vmContract.tapOnRefreshArticleList
-            ),
+            ScreenErrorWidget(onButtonTap: vmContract.tapOnRefreshArticleList),
           if (vmState.isLoading) const ScreenLoaderWidget(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        // onPressed: vmContract.tapOnRefreshArticleList,
+        onPressed: vmContract.tapOnRefreshArticleList,
         child: const Icon(Icons.refresh),
       ),
     );
@@ -73,9 +70,9 @@ class _ArticleListViewWidgetState extends BaseViewWidgetState<
   @override
   void goToArticleDetailsScreen(int index) {
     // TODO: this is not the ideal way to navigate. We will explore navigation in part4 of our tutorial
-    // Navigator.of(context).push(MaterialPageRoute(
-      // builder: (_) => ArticleDetailsView(article: vmState.articleList[index]),
-    // ));
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => ArticleDetailsView(article: vmState.articleList[index]),
+    ));
   }
 
   @override

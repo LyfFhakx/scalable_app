@@ -21,7 +21,7 @@ class ArticleListViewModel
   }
 
   @override
-  Future<void> requestArticleList() async {
+  Future<void> tapOnRefreshArticleList() async {
     startLoadingState();
     await _refreshArticleList();
   }
@@ -32,33 +32,31 @@ class ArticleListViewModel
   }
 
   Future<void> _refreshArticleList() async {
+    vmState.hasError = false;
     try {
       final articles = await _articleInteractor.getArticles();
-      vmState.articleList.clear();
-      vmState.articleVisibilityList.clear();
+      _clearLists();
       vmState.articleList.addAll(articles);
       vmState.articleVisibilityList.addAll(articles.map((e) => true));
     } catch (e) {
       vmState.hasError = true;
+      viewContract.showErrorRetrievingArticlesSnackbar();
       if (e is ApiError) {
       } else {}
     }
     stopLoadingState();
   }
 
+
+  void _clearLists() {
+    vmState.articleList.clear();
+    vmState.articleVisibilityList.clear();
+  }
+
+
   @override
   void tapOnHideArticle(int index) {
     vmState.articleVisibilityList[index] = false;
     notifyListeners();
-  }
-
-  @override
-  void onDisposeView() {
-    // TODO: implement onDisposeView
-  }
-
-  @override
-  void onInitViewState() {
-    // TODO: implement onInitViewState
   }
 }

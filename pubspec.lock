@@ -204,10 +204,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
       url: "https://pub.dev"
     source: hosted
-    version: "0.18.1"
+    version: "0.17.0"
   lints:
     dependency: transitive
     description:
@@ -561,10 +561,10 @@ packages:
     dependency: "direct main"
     description:
       name: webfeed_plus
-      sha256: "990dcc458b9438d97a747c9cbb7c2fe066a00a2702a56a4228967f4e8f96a030"
+      sha256: "2d5fb2a90afedb87a3b8f1d382b91108a5110deb4efb35c85f7adb26c2d97263"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1+1"
+    version: "1.0.0"
   win32:
     dependency: transitive
     description:

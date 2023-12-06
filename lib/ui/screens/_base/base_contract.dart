@@ -27,6 +27,6 @@ VC extends BaseViewContract> extends ChangeNotifier {
   late final VMS vmState;
   late final VC viewContract;
 
-  void onInitViewState();
+  void onInitState();
   void onDisposeView();
 }
