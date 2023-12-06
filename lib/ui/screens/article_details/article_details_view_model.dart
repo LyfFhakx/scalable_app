@@ -1,6 +1,4 @@
-
-import '../_base/base.dart';
-import 'article_details_contract.dart';
+import '../screens.dart';
 
 class ArticleDetailsViewModel
     extends BaseViewModel<ArticleDetailsVMState, ArticleDetailsViewContract>

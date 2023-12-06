@@ -6,7 +6,6 @@ class ArticleListVMState extends BaseViewModelState {
   late final String? initialArticleId;
   final List<bool> articleVisibilityList = [];
   List<Article> get articleList => articleListProvider.articleList;
-
 }
 
 abstract class ArticleListViewContract extends BaseViewContract {

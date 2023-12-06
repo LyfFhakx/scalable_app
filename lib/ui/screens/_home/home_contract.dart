@@ -1,4 +1,4 @@
-import '../_base/base.dart';
+import '../screens.dart';
 
 class HomeVMState extends BaseViewModelState {
   int selectedTab = 0;

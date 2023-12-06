@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-
 import '../../../domain.dart';
-import '../../routing/routing.dart';
-import '../../widgets/generic_widgets/screen_error_widget.dart';
-import '../../widgets/generic_widgets/screen_loader_widget.dart';
-import '../../widgets/model_widgets/article_card.dart';
-import '../screens.dart';
+import '../../../ui.dart';
 
 class ArticleListView extends StatefulWidget {
   final String? initialArticleId;

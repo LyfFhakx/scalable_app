@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core.dart';
 import '../../../domain.dart';
-import 'base.dart';
+import 'base_contract.dart';
 
 /// Abstract BaseViewWidgetState: This forms the foundation for the state of any view.
 ///
