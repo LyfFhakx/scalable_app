@@ -7,6 +7,9 @@ void initializeModules() {
   getIt.registerSingleton<ApiService>(
     ApiService(),
   );
+  getIt.registerSingleton<SharedPrefsService>(
+    SharedPrefsService(),
+  );
   getIt.registerLazySingleton<BaseCacheManager>(
         () => DefaultCacheManager(),
   );

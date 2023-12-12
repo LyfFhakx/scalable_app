@@ -5,34 +5,37 @@ import 'locator.dart';
 void initializeScreens() {
   // HomeView
   getIt.registerFactory<HomeVMContract>(
-        () => HomeViewModel(),
+    () => HomeViewModel(),
   );
   getIt.registerFactory<HomeVMState>(
-        () => HomeVMState(),
+    () => HomeVMState(),
   );
   getIt.registerFactoryParam<HomeView, NestedNavigator, void>(
-        (nestedNavigator, _) => HomeView(nestedNavigator: nestedNavigator),
+    (nestedNavigator, _) => HomeView(nestedNavigator: nestedNavigator),
   );
 
   // ArticleListView
   getIt.registerFactory<ArticleListVMContract>(
-        () => ArticleListViewModel(articleInteractor: getIt<ArticleUseCases>()),
+    () => ArticleListViewModel(articleInteractor: getIt<ArticleUseCases>()),
   );
-  getIt.registerFactory<ArticleListVMState>(
-          () => ArticleListVMState()
-  );
+  getIt.registerFactory<ArticleListVMState>(() => ArticleListVMState());
   getIt.registerFactoryParam<ArticleListView, String?, void>(
-        (articleId, _) => ArticleListView(initialArticleId: articleId),
+    (articleId, _) => ArticleListView(initialArticleId: articleId),
   );
 
   // ArticleDetailsView
   getIt.registerFactory<ArticleDetailsVMContract>(
-          () => ArticleDetailsViewModel()
-  );
-  getIt.registerFactory<ArticleDetailsVMState>(
-          () => ArticleDetailsVMState()
-  );
+      () => ArticleDetailsViewModel());
+  getIt.registerFactory<ArticleDetailsVMState>(() => ArticleDetailsVMState());
   getIt.registerFactoryParam<ArticleDetailsView, Article, void>(
-        (article, _) => ArticleDetailsView(article: article),
+    (article, _) => ArticleDetailsView(article: article),
+  );
+
+  getIt.registerFactory<UserSettingsVMContract>(() =>
+      UserSettingsViewModel(settingsInteractor: getIt<SettingsUseCases>()));
+  getIt.registerFactory<UserSettingsVMState>(
+    () => UserSettingsVMState());
+  getIt.registerFactory<UserSettingsView>(
+    () => const UserSettingsView(),
   );
 }

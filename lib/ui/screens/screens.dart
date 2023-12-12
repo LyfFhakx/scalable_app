@@ -13,3 +13,7 @@ export 'article_details/article_details_view_model.dart';
 export '_home/home_contract.dart';
 export '_home/home_view.dart';
 export '_home/home_view_model.dart';
+
+export 'user_settings/user_settings_contract.dart';
+export 'user_settings/user_settings_view.dart';
+export 'user_settings/user_settings_view_model.dart';

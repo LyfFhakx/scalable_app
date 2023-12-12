@@ -83,7 +83,7 @@ class AppRouter {
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   return FadeTransitionPage(
                     key: state.pageKey,
-                    child: const Center(child: Text('User page')),
+                    child: getIt<UserSettingsView>(),
                   );
                 },
               ),

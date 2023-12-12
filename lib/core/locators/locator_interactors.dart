@@ -6,4 +6,7 @@ void initializeInteractors() {
   getIt.registerFactory<ArticleUseCases>(
         () => ArticleInteractor(apiService: getIt<ApiService>()),
   );
+  getIt.registerFactory<SettingsUseCases>(
+        () => SettingsInteractor(sharedPrefsService: getIt<SharedPrefsService>()),
+  );
 }
